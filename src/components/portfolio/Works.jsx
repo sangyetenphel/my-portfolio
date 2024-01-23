@@ -4,12 +4,12 @@ import WorkItems from './WorkItems';
 import './portfolio.css';
 
 const Works = () => {
-    const [item, setItem] = useState({name: 'fullstack'});
+    const [item, setItem] = useState({name: 'full-stack'});
     const [projects, setProjects] = useState([]);
     const [active, setActive] = useState(0);
 
     useEffect(() => {
-        if(item.name === 'fullstack') {
+        if(item.name === 'full-stack') {
             setProjects(projectsData);
         } else {
             const newProjects = projectsData.filter((project) => {
