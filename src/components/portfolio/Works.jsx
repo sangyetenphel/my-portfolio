@@ -10,11 +10,11 @@ const Works = () => {
 
     useEffect(() => {
         if(item.name === 'full-stack') {
-            setProjects(projectsData);
+            setProjects([...projectsData].reverse());
         } else {
             const newProjects = projectsData.filter((project) => {
                 return project.category.toLowerCase() === item.name;
-            })
+            }).reverse();
             setProjects(newProjects);
         }
     }, [item]);

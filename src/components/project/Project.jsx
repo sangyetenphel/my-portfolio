@@ -21,7 +21,7 @@ const Project = () => {
         {/* <h3 className='project__subheading'>Year</h3>
         <p className='project__subheading_text'>{project.year}</p> */}
         <a href={project.github}><i class='bx bxl-github project__subheading_icon' ></i></a>
-        {project.link ? <a href="github.com"><i class='bx bx-link-external project__subheading_icon'></i></a> : ''}
+        {project.link ? <a href={project.link}><i class='bx bx-link-external project__subheading_icon'></i></a> : ''}
       </div>
     </div>
   )
