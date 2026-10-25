@@ -1,15 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './contact.css'
 
 const Contact = () => {
     const form = useRef();
+    const [status, setStatus] = useState('');
 
     const sendEmail = (e) => {
         e.preventDefault();
 
+        setStatus('sending');
+
         emailjs.sendForm('service_a42gvmx', 'template_ib0rzeh', form.current, 'RJqrI2YcWvDBPnGgu')
-        e.target.reset();
+            .then(() => {
+                form.current.reset();
+                setStatus('sent');
+            })
+            .catch(() => setStatus('error'));
     };
 
     return (
@@ -23,18 +30,19 @@ const Contact = () => {
                     <form ref={form} onSubmit={sendEmail} className='contact__form'>
                         <div className="contact__form-div">
                             <label htmlFor="" className="contact__form-tag">Name</label>
-                            <input type='text' name='name' className='contact__form-input' placeholder='Insert your name'></input>
+                            <input type='text' name='name' required className='contact__form-input' placeholder='Insert your name'></input>
                         </div>
 
                         <div className="contact__form-div">
                             <label htmlFor="" className="contact__form-tag">Email</label>
-                            <input type='email' name='email' className='contact__form-input' placeholder='Insert your email'></input>
+                            <input type='email' name='email' required className='contact__form-input' placeholder='Insert your email'></input>
                         </div>
 
                         <div className="contact__form-div contact__form-area">
                             <label htmlFor="" className="contact__form-tag">Message</label>
                             <textarea
                                 name='project'
+                                required
                                 cols='30'
                                 rows='10'
                                 className='contact__form-input'
@@ -42,10 +50,10 @@ const Contact = () => {
                             ></textarea>
                         </div>
 
-                        <button href="#contact" className='button button--flex'>
-                            Send Message
+                        <button type='submit' className='button button--flex' disabled={status === 'sending'}>
+                            {status === 'sending' ? 'Sending...' : 'Send Message'}
                             <svg
-                            class="button__icon"
+                            className="button__icon"
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
@@ -62,6 +70,13 @@ const Contact = () => {
                             ></path>
                             </svg>
                         </button>
+
+                        {status === 'sent' && (
+                            <p className='contact__status'>Thanks! Your message was sent. I'll get back to you soon.</p>
+                        )}
+                        {status === 'error' && (
+                            <p className='contact__status contact__status--error'>Sorry, your message couldn't be sent. Please try again or reach me on <a href='https://www.linkedin.com/in/sangyetenphel' target='_blank' rel='noreferrer'>LinkedIn</a>.</p>
+                        )}
                     </form>
                 </div>
             </div>

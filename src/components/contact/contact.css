@@ -140,3 +140,13 @@
 }
 
 
+
+.contact__status {
+    margin-top: 1rem;
+    font-size: var(--small-font-size);
+    color: hsl(140, 50%, 35%);
+}
+
+.contact__status--error {
+    color: hsl(0, 65%, 45%);
+}

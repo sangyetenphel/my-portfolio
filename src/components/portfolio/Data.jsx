@@ -102,9 +102,9 @@ export const projectsData = [
     subtitle: "It's a classic hangman game with a twist—you can play it online by creating a word and then sharing a link with your friends to join the game.",
     video: HangmanWithFriendsVideo,
     project_overview : "This project is an online version of the classic hangman game, featuring a React and TypeScript frontend integrated with a Django backend. The frontend communicates with the backend through a REST API, allowing players to create custom words or use predefined ones stored in the database. Players can generate a link to share the game with friends, making it an engaging and interactive experience.",
+    technologies: 'React, TypeScript, Vite, Django, Django REST Framework, PostgreSQL, Axios',
     category: "front-end",
     github: 'https://github.com/sangyetenphel/Hangman',
-    link: "https://hangman.us-cdp2.choreoapps.dev/",
   },
 
   {
