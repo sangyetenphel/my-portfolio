@@ -24,6 +24,10 @@ const theGoatVideo = 'https://sangye-tenphel.s3.amazonaws.com/theGoat.mp4';
 const timesheetVideo = 'https://sangye-tenphel.s3.amazonaws.com/timesheet.mp4';
 const HangmanWithFriendsVideo = "https://sangye-tenphel.s3.amazonaws.com/HangmanWithFriends.mp4";
 
+// Served from the public/ folder
+const carolinaExplorerImage = '/projects/carolinaExplorer.jpg';
+const carolinaExplorerVideo = '/projects/carolinaExplorer.mp4';
+
 export const projectsData = [
   {
     id: 1,
@@ -101,6 +105,19 @@ export const projectsData = [
     category: "front-end",
     github: 'https://github.com/sangyetenphel/Hangman',
     link: "https://hangman.us-cdp2.choreoapps.dev/",
+  },
+
+  {
+    id: 7,
+    image: carolinaExplorerImage,
+    title: "Carolina Explorer",
+    year: '2026',
+    subtitle: 'A tour-booking platform connecting tourists with local tour guides across North Carolina.',
+    video: carolinaExplorerVideo,
+    project_overview: "Carolina Explorer is a Spring Boot MVC application, built as a team project, that helps visitors discover and book guided tours across North Carolina. Tourists can search tours by city, group size and category, book a date, track pending and accepted trips, and leave reviews that feed each tour's rating. Tour guides publish tours with itineraries and photos, then accept or reject booking requests from a dashboard that tracks upcoming tours, earnings and average rating. The app uses a layered controller-service-repository architecture with Spring Data JPA on PostgreSQL, BCrypt password hashing, CSRF protection and ownership checks on every booking action, and ships as a Docker image.",
+    technologies: 'Java, Spring Boot, Spring Security, Spring Data JPA, PostgreSQL, FreeMarker, Bootstrap, Docker, JUnit, Mockito',
+    category: "back-end",
+    github: 'https://github.com/sangyetenphel/Carolina-Explorer',
   },
 ];
 
