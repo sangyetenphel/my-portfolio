@@ -36,7 +36,7 @@ const Footer = () => {
             </div> */}
 
             <span className="footer__copy">
-                &#169; 2024 Sangye Tenphel
+                &#169; {new Date().getFullYear()} Sangye Tenphel
             </span>
         </div>
     </footer>
