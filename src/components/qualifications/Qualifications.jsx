@@ -30,6 +30,38 @@ const Qualifications = () => {
                     <div className={toggleState === 1 ? "qualifications__content qualifications__content-active" : "qualifications__content"}>
                         <div className="qualifications__data">
                             <div>
+                                <h3 className='qualifications__title'>Master's Degree, Computer Science</h3>
+                                <span className='qualifications__subtitle'>UNC Greensboro - Accelerated Master's Program</span>
+                                <div className="qualifications__calendar">
+                                    <i className='uil uil-calendar-alt'></i> Expected Dec 2027
+                                </div>
+                            </div>
+
+                            <div>
+                                <span className="qualifications__rounder"></span>
+                                <span className="qualifications__line"></span>
+                            </div>
+                        </div>
+
+                        <div className="qualifications__data">
+                            <div></div>
+
+                            <div>
+                                <span className="qualifications__rounder"></span>
+                                <span className="qualifications__line"></span>
+                            </div>
+
+                            <div>
+                                <h3 className='qualifications__title'>Bachelor's Degree, Computer Science</h3>
+                                <span className='qualifications__subtitle'>UNC Greensboro - GPA 3.87/4.00</span>
+                                <div className="qualifications__calendar">
+                                    <i className='uil uil-calendar-alt'></i> Aug 2024 - Dec 2026
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="qualifications__data">
+                            <div>
                                 <h3 className='qualifications__title'>Meta Front-End Developer Professional Certificate</h3>
                                 <span className='qualifications__subtitle'>Meta - Online</span>
                                 <div className="qualifications__calendar">
