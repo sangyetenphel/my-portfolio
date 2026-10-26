@@ -128,10 +128,10 @@ const Qualifications = () => {
                     <div className={toggleState === 2 ? "qualifications__content qualifications__content-active" : "qualifications__content"}>
                         <div className="qualifications__data">
                             <div>
-                                <h3 className='qualifications__title'>IT Technician</h3>
-                                <span className='qualifications__subtitle'>Mercy Drive - New York</span>
+                                <h3 className='qualifications__title'>Data Systems Analyst Intern</h3>
+                                <span className='qualifications__subtitle'>UNCG Center for Youth, Family &amp; Community Partnerships - Greensboro</span>
                                 <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Sep 2022 - Jul 2023
+                                    <i className='uil uil-calendar-alt'></i> Apr 2026 - Aug 2026
                                 </div>
                             </div>
 
@@ -149,6 +149,16 @@ const Qualifications = () => {
                                 <span className="qualifications__line"></span>
                             </div>
 
+                            <div>
+                                <h3 className='qualifications__title'>IT Technician</h3>
+                                <span className='qualifications__subtitle'>Mercy Drive - New York</span>
+                                <div className="qualifications__calendar">
+                                    <i className='uil uil-calendar-alt'></i> Sep 2022 - Jul 2023
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="qualifications__data">
                             <div>
                                 <h3 className='qualifications__title'>Sushi Server</h3>
                                 <span className='qualifications__subtitle'>Temakase Handroll Bar - New York </span>
@@ -156,16 +166,6 @@ const Qualifications = () => {
                                     <i className='uil uil-calendar-alt'></i> Aug 2021 - May 2022
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div>
-                                <h3 className='qualifications__title'>Web Development and SEO Intern</h3>
-                                <span className='qualifications__subtitle'>Screenshop(Acquired by Snapchat) - New York</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Apr 2020 - May 2020
-                                </div>
-                            </div>
 
                             <div>
                                 <span className="qualifications__rounder"></span>
@@ -182,11 +182,26 @@ const Qualifications = () => {
                             </div>
 
                             <div>
+                                <h3 className='qualifications__title'>Web Development and SEO Intern</h3>
+                                <span className='qualifications__subtitle'>Screenshop(Acquired by Snapchat) - New York</span>
+                                <div className="qualifications__calendar">
+                                    <i className='uil uil-calendar-alt'></i> Apr 2020 - May 2020
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="qualifications__data">
+                            <div>
                                 <h3 className='qualifications__title'>Whole Foods Shopper</h3>
                                 <span className='qualifications__subtitle'>Amazon - New York </span>
                                 <div className="qualifications__calendar">
                                     <i className='uil uil-calendar-alt'></i> Aug 2019 - Feb 2020
                                 </div>
+                            </div>
+
+                            <div>
+                                <span className="qualifications__rounder"></span>
+                                <span className="qualifications__line"></span>
                             </div>
                         </div>
                     </div>
