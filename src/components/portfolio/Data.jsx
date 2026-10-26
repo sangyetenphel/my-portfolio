@@ -27,6 +27,7 @@ const HangmanWithFriendsVideo = "https://sangye-tenphel.s3.amazonaws.com/Hangman
 // Served from the public/ folder
 const carolinaExplorerImage = '/projects/carolinaExplorer.jpg';
 const carolinaExplorerVideo = '/projects/carolinaExplorer.mp4';
+const ctrlExDeleteImage = '/projects/ctrlExDelete.jpg';
 
 export const projectsData = [
   {
@@ -38,7 +39,7 @@ export const projectsData = [
     video: timesheetVideo,
     project_overview: "A Flask application crafted to facilitate the meticulous tracking of work hours. Users can register and log in, enabling them to input essential details such as the company name and base pay. The application seamlessly presents the current date and time, allowing users to record their start and end times for each shift across the days of the week. Robust features include the ability to add multiple companies, filter data to assess weekly earnings, and leverage a database for secure storage. This application is developed using the Flask framework, ensuring a streamlined and efficient user experience.",
     technologies: 'Python, Flask, HTML/CSS, Bootstrap, DBMS, Date and Time Handling, Session Management',
-    category: "back-end",
+    category: "web",
     github: "https://github.com/sangyetenphel/timesheet",
   },
 
@@ -51,7 +52,7 @@ export const projectsData = [
     video: theGoatVideo,
     project_overview: "A sophisticated PHP backend website crafted by for an esteemed web development agency, showcasing advanced frontend proficiency in JavaScript and CSS techniques. Showcasing seamless animations, captivating parallax effects, elegant pop-up dialog boxes, and dynamic JavaScript countdowns tailored to elevate the users online presence.",
     technologies: 'PHP, JavaScript, HTML/CSS, CSS Animations, Parallax Effects',
-    category: "front-end",
+    category: "web",
     github: "https://github.com/sangyetenphel/the-goat",
   },
 
@@ -64,7 +65,7 @@ export const projectsData = [
     video: smartWeatherAppVideo,
     project_overview : "The weather app provides clothing recommendations based on the current weather conditions, utilizing data from the OpenWeather API. Users can access the app without logging in, and upon the first use, they are prompted to enter a city. The app showcases weather-appropriate images. The project structure involves a dedicated folder for the app, with subfolders for static files, templates, and a clean JSON program aimed at optimizing the cities list file size.",
     technologies: 'Python, Django, JavaScript, HTML/CSS, Bootstrap, OpenWeather API, WorldTime API, SQLite3',
-    category: "front-end",
+    category: "web",
     github: 'https://github.com/sangyetenphel/smart-weather-app',
   },
 
@@ -77,7 +78,7 @@ export const projectsData = [
     video: fureverPreciousVideo,
     project_overview: "Furever Precious, a Django-based ecommerce platform, serves as a haven for pet enthusiasts. Acting as a virtual marketplace, it seamlessly integrates user authentication, secure profiles, and efficient order tracking. The platform's intuitive design allows users to effortlessly explore a diverse array of pet products with straightforward cart management. Fostering community engagement, users can share their thoughts through reviews and comments. Personalized profiles enhance the user experience by facilitating seamless information management. The secure checkout process, powered by the Stripe payment system, ensures a smooth transaction experience.",
     technologies: 'Python, Django, JavaScript, HTML/CSS, Bootstrap, Django Authentication, Stripe Payment Integration',
-    category: "back-end",
+    category: "web",
     github: "https://github.com/sangyetenphel/furever-precious",
   },
 
@@ -90,7 +91,7 @@ export const projectsData = [
     video: covid19TrackerVideo,
     project_overview : "The app connects two actors, one with COVID-19. Framed as an AI search, it seeks the shortest path using breadth-first search, treating individuals as states and movies as actions. Initial and goal states are set. Leveraging a database of 1,044,500 actors, it finds the concise path. Additionally, it provides U.S. Coronavirus cases using 'BeautifulSoup4' for web scraping. For engagement, the app dynamically generates refreshing virus facts on each HTTP request.",
     technologies: 'Python, Django, BeautifulSoup4, BFS Algorithm, JavaScript, HTML/CSS, Bootstrap',
-    category: "front-end",
+    category: "web",
     github: 'https://github.com/sangyetenphel/covid-19-tracker',
   },
 
@@ -103,7 +104,7 @@ export const projectsData = [
     video: HangmanWithFriendsVideo,
     project_overview : "This project is an online version of the classic hangman game, featuring a React and TypeScript frontend integrated with a Django backend. The frontend communicates with the backend through a REST API, allowing players to create custom words or use predefined ones stored in the database. Players can generate a link to share the game with friends, making it an engaging and interactive experience.",
     technologies: 'React, TypeScript, Vite, Django, Django REST Framework, PostgreSQL, Axios',
-    category: "front-end",
+    category: "web",
     github: 'https://github.com/sangyetenphel/Hangman',
   },
 
@@ -116,22 +117,31 @@ export const projectsData = [
     video: carolinaExplorerVideo,
     project_overview: "Carolina Explorer is a Spring Boot MVC application, built as a team project, that helps visitors discover and book guided tours across North Carolina. Tourists can search tours by city, group size and category, book a date, track pending and accepted trips, and leave reviews that feed each tour's rating. Tour guides publish tours with itineraries and photos, then accept or reject booking requests from a dashboard that tracks upcoming tours, earnings and average rating. The app uses a layered controller-service-repository architecture with Spring Data JPA on PostgreSQL, BCrypt password hashing, CSRF protection and ownership checks on every booking action, and ships as a Docker image.",
     technologies: 'Java, Spring Boot, Spring Security, Spring Data JPA, PostgreSQL, FreeMarker, Bootstrap, Docker, JUnit, Mockito',
-    category: "back-end",
+    category: "web",
     github: 'https://github.com/sangyetenphel/Carolina-Explorer',
+  },
+
+  {
+    id: 8,
+    image: ctrlExDeleteImage,
+    title: "Ctrl + Ex + Delete",
+    year: '2026',
+    status: 'In progress',
+    subtitle: 'An iOS breakup-recovery app with an AI healing companion, built as my senior capstone at UNC Greensboro.',
+    project_overview: "Ctrl + Ex + Delete is an iOS app that helps people rebuild their everyday lives after a breakup through daily check-ins, psychology-informed activities, a memory scrapbook, progress insights and an AI companion named Ced. Users stay anonymous: there is no sign-up, and the backend identifies each install with an anonymous ID. It is a team senior capstone project; my work focuses on the FastAPI backend and Ced. I built Ced's chat on top of an LLM API with backend safety checks, rate limits and in-chat crisis resources, real-time voice calls with Ced relayed through the backend, activity recommendations, the progress and insights views, and photo storage for the scrapbook on AWS S3, along with the SwiftUI screens that connect to them.",
+    technologies: 'Swift, SwiftUI, Python, FastAPI, PostgreSQL, AWS S3, Groq and Gemini Live APIs, Figma',
+    category: "mobile",
   },
 ];
 
 export const projectsNav = [
     {
-        name: 'full-stack',
+        name: 'all',
     },
     {
-        name: 'front-end',
+        name: 'web',
     },
     {
-        name: 'back-end',
+        name: 'mobile',
     },
-//     {
-//         name: 'design',
-//     },
 ]

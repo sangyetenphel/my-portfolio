@@ -57,7 +57,7 @@ const Data = () => {
             </svg> */}
         </h1>
         <h3 className='home__subtitle'>Full Stack Developer</h3>
-        <p className='home__description'> Passionate software developer proficient in both frontend and backend technologies. I'm driven by a fascination for translating ideas into impactful digital solutions.</p>
+        <p className='home__description'>Computer Science student at UNC Greensboro (B.S. Dec 2026, Accelerated M.S. Dec 2027) building full-stack web and mobile apps with React, Django, FastAPI, Spring Boot and SwiftUI.</p>
 
         {/* <a href="#contact" className='button button--flex'>
             Say Hello
