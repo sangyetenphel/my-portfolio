@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Sangye Tenphel: Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My personal portfolio website, live at **[sangyetenphel.com](https://sangyetenphel.com)**. It introduces me, lists my skills, education and experience, and showcases my projects, each with a demo video, an overview, the technologies used and a link to the code. Built with React.
 
-## Available Scripts
+![Portfolio demo: the home section, skills, education and experience timeline, project filters and a project page](docs/demo.gif)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Home:** an introduction, links to LinkedIn and GitHub, and a resume download.
+- **Skills:** frontend and mobile skills alongside backend and cloud skills.
+- **Qualifications:** an education and experience timeline you switch between with tabs.
+- **Portfolio:** project cards you can filter by All, Web or Mobile. Each project has its own page with a demo video, an overview, the technologies used, and GitHub and live-site links.
+- **Contact form:** visitors can send a message, delivered by email through EmailJS, with sending, success and error states.
+- **Responsive:** the layout adapts from desktop to phone, with a bottom navigation menu on small screens.
+- **Link previews:** Open Graph tags give a preview card when the site is shared on LinkedIn or in messages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+public/
+├── index.html            Page title, meta and link-preview tags, icon fonts
+├── og-image.jpg          Link-preview image
+└── projects/             Project thumbnails and demo videos served from the site
+src/
+├── App.js                Routes: "/" (all sections) and "/project/:itemId"
+├── components/
+│   ├── header/           Navigation bar
+│   ├── home/             Introduction, social links and resume download
+│   ├── skills/           Skills cards
+│   ├── qualifications/   Education and experience timeline
+│   ├── portfolio/        Project cards, filters and Data.jsx (all project content)
+│   ├── project/          Project detail page
+│   ├── contact/          Contact form (EmailJS)
+│   └── footer/, scrollup/
+└── App.test.js           Tests for the home page, project filters and project pages
+```
 
-### `npm test`
+### Adding a project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Add an entry to `projectsData` in `src/components/portfolio/Data.jsx` with an `id`, `title`, `year`, `subtitle`, `image`, `video`, `project_overview`, `technologies`, `category` (`web` or `mobile`) and `github` link. Optional fields are `link` for a live site and `status` (for example "In progress"). Put the image and video in `public/projects/`, or host them elsewhere and use the full URL.
 
-### `npm run build`
+## Running it locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+npm start        # development server at http://localhost:3000
+npm test         # run the tests
+npm run build    # production build in build/
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The site is hosted on Netlify, which rebuilds and publishes it automatically whenever `main` changes. Pull requests get a preview build first.
 
-### `npm run eject`
+## Built with
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React 18 (Create React App), React Router
+- EmailJS for the contact form
+- CSS, Boxicons and Unicons icon fonts, Google Fonts (Poppins)
+- Netlify for hosting
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created by Sangye Tenphel.
