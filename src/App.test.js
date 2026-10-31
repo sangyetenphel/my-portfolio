@@ -46,3 +46,10 @@ test('unknown project id shows a not found message instead of crashing', () => {
   renderAt('/project/9999');
   expect(screen.getByText('Project not found')).toBeInTheDocument();
 });
+
+test('footer links to LinkedIn, GitHub and email', () => {
+  renderAt('/');
+  expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://www.linkedin.com/in/sangyetenphel');
+  expect(screen.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/sangyetenphel');
+  expect(screen.getByRole('link', { name: 'Email' })).toHaveAttribute('href', 'mailto:sangyetengkhar@gmail.com');
+});

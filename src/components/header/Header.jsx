@@ -54,13 +54,6 @@ const Header = () => {
                              Portfolio
                         </a>
                     </li>
-
-                    <li className='nav__item'>
-                        <a href='/#contact' onClick={() => setActiveNav('#contact')} className={activeNav === '#contact' ? 'nav__link active-link': 'nav__link'}>
-                            <i className='uil uil-message nav__icon'></i>
-                             Contact
-                        </a>
-                    </li>
                 </ul>
 
                 <i className='uil uil-times nav__close' onClick={() => setShowMenu(!showMenu)}></i>
