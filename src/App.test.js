@@ -14,6 +14,8 @@ const renderAt = (path) =>
 test('home page shows the main sections', () => {
   renderAt('/');
   expect(screen.getByRole('heading', { level: 1, name: /sangye tengkhar/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Software Engineer' })).toBeInTheDocument();
+  expect(screen.getByText(/exploring how data and AI can make apps smarter/)).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Skills' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Qualifications' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Projects' })).toBeInTheDocument();

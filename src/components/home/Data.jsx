@@ -56,8 +56,8 @@ const Data = () => {
                   ></path>
             </svg> */}
         </h1>
-        <h3 className='home__subtitle'>Full Stack Developer</h3>
-        <p className='home__description'>Computer Science student at UNC Greensboro (B.S. Dec 2026, Accelerated M.S. Dec 2027) building full-stack web and mobile apps with React, Django, FastAPI, Spring Boot and SwiftUI.</p>
+        <h3 className='home__subtitle'>Software Engineer</h3>
+        <p className='home__description'>I design and build web and mobile apps end to end, with a focus on making them simple and reliable for the people who use them. Based in Greensboro, NC, and exploring how data and AI can make apps smarter.</p>
 
         {/* <a href="#contact" className='button button--flex'>
             Say Hello
