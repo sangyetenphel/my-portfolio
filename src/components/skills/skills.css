@@ -2,7 +2,7 @@
     grid-template-columns: repeat(2, 350px);
     column-gap: 3rem;
     justify-content: center;
-    padding: 3rem;
+    padding-bottom: 4rem;
 }
 
 .skills__content {

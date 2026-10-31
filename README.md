@@ -7,7 +7,7 @@ My personal portfolio website, live at **[sangyetengkhar.com](https://sangyeteng
 ## Features
 
 - **Home:** an introduction and a resume download.
-- **Qualifications:** a horizontal education and experience timeline, with tabs to switch between them and arrows (or swiping) to move along it.
+- **Qualifications:** a horizontal education and experience timeline with entries alternating above and below the line, tabs to switch between them and arrows (or swiping) to move along it.
 - **Projects:** a slider of my four featured projects, with arrow buttons, dots, and swiping on phones. Each project has its own page with a demo video, an overview, the technologies used, and GitHub and live-site links.
 - **Skills:** frontend and mobile skills alongside backend and cloud skills.
 - **Footer:** LinkedIn, GitHub and email links.
