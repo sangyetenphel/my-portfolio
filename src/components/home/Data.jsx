@@ -1,5 +1,5 @@
 import React from 'react';
-import CV from '../../assets/Sangye_Tenphel_Resume.pdf';
+import CV from '../../assets/Sangye_Tengkhar_Resume.pdf';
 
 const Data = () => {
   return (
@@ -80,7 +80,7 @@ const Data = () => {
             </svg>
         </a> */}
 
-        <a download='' href={CV} className='button button--flex'>
+        <a download='Sangye_Tengkhar_Resume.pdf' href={CV} className='button button--flex'>
             Download Resume
             <svg
                 className="button__icon"
