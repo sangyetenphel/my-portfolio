@@ -39,7 +39,7 @@ const skillGroups = [
       { name: 'pandas' },
       { name: 'NumPy' },
       { name: 'Jupyter' },
-      { name: 'LLM APIs', detail: 'Groq, Gemini' },
+      { name: 'LLM APIs' },
     ],
   },
 ];
@@ -58,11 +58,8 @@ const SkillCard = ({ title, skills }) => {
                 <ul className="skills__group" key={index}>
                     {column.map((skill) => (
                         <li className="skills__data" key={skill.name}>
-                            <i className='bx bx-badge-check'></i>
-                            <div>
-                                <span className='skills__name'>{skill.name}</span>
-                                {skill.detail && <span className='skills__detail'>{skill.detail}</span>}
-                            </div>
+                            <span className='skills__icon' aria-hidden='true'><i className='bx bx-check'></i></span>
+                            <span className='skills__name'>{skill.name}</span>
                         </li>
                     ))}
                 </ul>

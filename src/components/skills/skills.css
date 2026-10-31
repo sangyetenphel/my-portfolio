@@ -41,12 +41,21 @@
 
 .skills__data {
     display: flex;
+    align-items: center;
     column-gap: 0.5rem;
 }
 
-.skills .bx-badge-check {
-    font-size: 1rem;
+/* Dark check on a soft round background */
+.skills__icon {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background-color: hsl(var(--hue), var(--sat), 91%);
     color: var(--title-color);
+    font-size: 1rem;
 }
 
 .skills__name {
@@ -56,11 +65,6 @@
     font-weight: var(--font-medium);
     line-height: 18px;
     white-space: nowrap;
-}
-
-.skills__detail {
-    display: block;
-    font-size: var(--tiny-font-size);
 }
 
 /* BREAKPOINTS */

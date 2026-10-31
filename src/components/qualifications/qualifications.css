@@ -207,15 +207,18 @@
     }
 }
 
-/* Very wide screens: room for the whole education timeline at once */
+/* Very wide screens: spread the timeline across most of the screen. The spacing grows with the
+   window, sized so that all six education entries (6.5 steps including the room after the last one)
+   fit next to the arrows. */
 @media screen and (min-width: 1680px) {
     .qualifications__container {
-        max-width: 1560px;
+        --width: min(1840px, 100vw - 6rem);
+        max-width: var(--width);
     }
 
     .qualifications__timeline {
-        --step: 225px;
-        --info-width: 320px;
+        --step: calc((var(--width) - 120px) / 6.5);
+        --info-width: calc(var(--step) * 1.5);
     }
 }
 
