@@ -90,10 +90,12 @@
     --fade-right: 5rem;
 }
 
-/* Room after the last item so its text is not cut off. */
+/* The last entry's text is wider than its slice of the line, so the track keeps some extra room.
+   It is split evenly before the first and after the last entry so the line itself stays centered. */
+.qualifications__track::before,
 .qualifications__track::after {
     content: '';
-    flex: 0 0 calc(var(--info-width) - var(--step));
+    flex: 0 0 calc((var(--info-width) - var(--step)) / 2);
 }
 
 .qualifications__track::-webkit-scrollbar {
@@ -203,13 +205,14 @@
 
     .qualifications__timeline {
         --step: 200px;
-        --info-width: 300px;
+        --info-width: 250px;
     }
 }
 
 /* Very wide screens: spread the timeline across most of the screen. The spacing grows with the
-   window, sized so that all six education entries (6.5 steps including the room after the last one)
-   fit next to the arrows. */
+   window, sized so that all six education entries (6.3 steps including the extra room for the last one)
+   fit next to the arrows. Text is only a little wider than the spacing, so long titles wrap and the
+   timeline stays visually centered. */
 @media screen and (min-width: 1680px) {
     .qualifications__container {
         --width: min(1840px, 100vw - 6rem);
@@ -217,8 +220,8 @@
     }
 
     .qualifications__timeline {
-        --step: calc((var(--width) - 120px) / 6.5);
-        --info-width: calc(var(--step) * 1.5);
+        --step: calc((var(--width) - 120px) / 6.3);
+        --info-width: calc(var(--step) * 1.2);
     }
 }
 
