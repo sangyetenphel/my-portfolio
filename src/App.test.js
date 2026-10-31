@@ -13,7 +13,7 @@ const renderAt = (path) =>
 
 test('home page shows the main sections', () => {
   renderAt('/');
-  expect(screen.getByRole('heading', { level: 1, name: /sangye tenphel/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1, name: /sangye tengkhar/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Skills' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Qualifications' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Portfolio' })).toBeInTheDocument();

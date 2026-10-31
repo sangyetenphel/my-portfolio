@@ -1,4 +1,4 @@
-# Sangye Tenphel: Portfolio
+# Sangye Tengkhar: Portfolio
 
 My personal portfolio website, live at **[sangyetengkhar.com](https://sangyetengkhar.com)**. It introduces me, lists my skills, education and experience, and showcases my projects, each with a demo video, an overview, the technologies used and a link to the code. Built with React.
 
@@ -59,4 +59,4 @@ The site is hosted on Netlify, which rebuilds and publishes it automatically whe
 - CSS, Boxicons and Unicons icon fonts, Google Fonts (Poppins)
 - Netlify for hosting
 
-Created by Sangye Tenphel.
+Created by Sangye Tengkhar.
