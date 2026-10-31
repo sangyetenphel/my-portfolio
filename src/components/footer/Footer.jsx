@@ -21,19 +21,19 @@ const Footer = () => {
                 </li>
             </ul> */}
 
-            {/* <div className="footer__social">
-                <a href='https://www.facebook.com/' className='footer__social-link' target='_blank' rel='noreferrer'>
-                    <i className='bx bxl-facebook'></i>
+            <div className="footer__social">
+                <a href='https://www.linkedin.com/in/sangyetenphel' className='footer__social-link' target='_blank' rel='noreferrer' aria-label='LinkedIn'>
+                    <i className='uil uil-linkedin'></i>
                 </a>
 
-                <a href='https://www.instagram.com/' className='footer__social-link' target='_blank' rel='noreferrer'>
-                    <i className='bx bxl-instagram'></i>
+                <a href='https://github.com/sangyetenphel' className='footer__social-link' target='_blank' rel='noreferrer' aria-label='GitHub'>
+                    <i className='uil uil-github-alt'></i>
                 </a>
 
-                <a href='https://twitter.com/' className='footer__social-link' target='_blank' rel='noreferrer'>
-                    <i className='bx bxl-twitter'></i>
+                <a href='mailto:sangyetengkhar@gmail.com' className='footer__social-link' aria-label='Email'>
+                    <i className='uil uil-envelope'></i>
                 </a>
-            </div> */}
+            </div>
 
             <span className="footer__copy">
                 &#169; {new Date().getFullYear()} Sangye Tengkhar

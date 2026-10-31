@@ -7,7 +7,6 @@ import Skills from './components/skills/Skills';
 // import Services from './components/services/Services';
 import Qualifications from './components/qualifications/Qualifications';
 import Portfolio from './components/portfolio/Portfolio';
-import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import ScrollUp from './components/scrollup/ScrollUp';
 import Project from './components/project/Project';
@@ -36,7 +35,6 @@ function App() {
             {/* <Services /> */}
             <Qualifications />
             <Portfolio />
-            <Contact />
           </DefaultLayout>
         }
       />

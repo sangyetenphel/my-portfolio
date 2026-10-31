@@ -32,19 +32,17 @@
     display: flex;
     justify-content: center;
     column-gap: 1.25rem;
+    margin-bottom: var(--mb-1-5);
 }
 
 .footer__social-link {
-    background-color: var(--title-color);
-    color: var(--container-color);
-    font-size: 1.125rem;
-    padding: 0.4rem;
-    border-radius: 0.5rem;
+    color: var(--title-color);
+    font-size: 1.25rem;
     display: inline-flex;
 }
 
 .footer__social-link:hover {
-    background-color: var(--title-color-dark);
+    color: var(--title-color-dark);
 }
 
 .footer__copy {
@@ -53,14 +51,4 @@
     color: var(--title-color);
     text-align: center;
     font-size: var(--smaller-font-size);
-}
-
-/* BREAKPOINTS */
-/* For large devices */
-@media screen and (max-width: 922px) {
-    .footer__social-link {
-        padding: 0.25rem;
-        border-radius: 0.25rem;
-        font-size: 1rem;
-    }
 }

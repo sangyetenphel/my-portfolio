@@ -12,7 +12,7 @@ const Project = () => {
       <div className='project section'>
         <h2 className="project__title">Project not found</h2>
         <span className="project__subtitle">
-          <Link to='/#portfolio'>Back to all projects</Link>
+          <Link to='/#projects'>Back to all projects</Link>
         </span>
       </div>
     )
