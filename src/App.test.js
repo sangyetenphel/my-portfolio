@@ -16,24 +16,19 @@ test('home page shows the main sections', () => {
   expect(screen.getByRole('heading', { level: 1, name: /sangye tengkhar/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Skills' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Qualifications' })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: 'Portfolio' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Projects' })).toBeInTheDocument();
 });
 
-test('portfolio lists every project under All and filters by type', () => {
+test('projects slider shows the four projects, newest first, without filters', () => {
   renderAt('/');
-  projectsData.forEach((project) => {
-    expect(screen.getByRole('heading', { name: project.title })).toBeInTheDocument();
-  });
-
-  fireEvent.click(screen.getByText('mobile'));
-  const mobile = projectsData.filter((project) => project.category === 'mobile');
-  const web = projectsData.filter((project) => project.category === 'web');
-  mobile.forEach((project) => {
-    expect(screen.getByRole('heading', { name: project.title })).toBeInTheDocument();
-  });
-  web.forEach((project) => {
-    expect(screen.queryByRole('heading', { name: project.title })).not.toBeInTheDocument();
-  });
+  const titles = screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent);
+  const expected = [...projectsData].reverse().map((project) => project.title);
+  expect(projectsData).toHaveLength(4);
+  expect(titles).toEqual(expect.arrayContaining(expected));
+  expect(titles.indexOf(expected[0])).toBeLessThan(titles.indexOf(expected[3]));
+  expect(screen.queryByText('mobile')).not.toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'Previous project' })).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Next project' })).toBeInTheDocument();
 });
 
 test('project page shows the project details', () => {
