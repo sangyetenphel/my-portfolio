@@ -69,3 +69,15 @@ test('qualifications timeline switches between education and experience', () => 
   expect(screen.getByRole('heading', { name: 'Data Systems Analyst Intern' })).toBeInTheDocument();
   expect(screen.queryByRole('heading', { name: 'Google IT Support Certificate' })).not.toBeInTheDocument();
 });
+
+test('skills are grouped without proficiency levels', () => {
+  renderAt('/');
+  ['Frontend & Mobile', 'Backend & Cloud', 'Data & AI'].forEach((group) => {
+    expect(screen.getByRole('heading', { name: group })).toBeInTheDocument();
+  });
+  ['Docker', 'SQL', 'pandas', 'NumPy', 'Jupyter', 'LLM APIs', 'Bootstrap', 'Redux', 'React Native', 'Figma'].forEach((skill) => {
+    expect(screen.getByText(skill)).toBeInTheDocument();
+  });
+  expect(screen.queryByText('Intermediate')).not.toBeInTheDocument();
+  expect(screen.queryByText('Basic')).not.toBeInTheDocument();
+});

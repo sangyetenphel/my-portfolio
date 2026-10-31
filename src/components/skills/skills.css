@@ -1,14 +1,18 @@
 .skills__container {
-    grid-template-columns: repeat(2, 350px);
-    column-gap: 3rem;
+    /* Three cards side by side when there is room; on smaller screens they wrap and stay centered */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
     justify-content: center;
+    max-width: 1040px;
     padding-bottom: 4rem;
 }
 
 .skills__content {
+    flex: 0 1 300px;
     background-color: var(--container-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 3rem 2.5rem;
+    padding: 2.5rem 1.5rem;
     border-radius: 1.25rem;
 }
 
@@ -22,10 +26,13 @@
 .skills__box {
     display: flex;
     justify-content: center;
-    column-gap: 2.5rem;
+    column-gap: 2rem;
 }
 
 .skills__group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: grid;
     align-items: flex-start;
     align-content: start;
@@ -43,33 +50,31 @@
 }
 
 .skills__name {
+    display: block;
+    color: var(--title-color);
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
     line-height: 18px;
     white-space: nowrap;
 }
 
-.skills__level {
+.skills__detail {
+    display: block;
     font-size: var(--tiny-font-size);
 }
 
 /* BREAKPOINTS */
-/* For large devices */
-@media screen and (max-width: 922px) {
-    .skills__container {
-        grid-template-columns: max-content;
-        row-gap: 2rem;
+/* For medium devices */
+@media screen and (max-width: 768px) {
+    .skills__content {
+        padding: 1.5rem;
     }
 }
 
-/* For medium devices */
-@media screen and (max-width: 768px) {
-    .skills__container {
-        grid-template-columns: 1fr;
-    }
-
+/* Full-width cards on phones */
+@media screen and (max-width: 576px) {
     .skills__content {
-        padding: 1.5rem;
+        flex-basis: 100%;
     }
 }
 
