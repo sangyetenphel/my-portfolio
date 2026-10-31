@@ -44,30 +44,17 @@ const skillGroups = [
   },
 ];
 
-const SkillCard = ({ title, skills }) => {
-  // Split the list into two columns, filling the left one first.
-  const half = Math.ceil(skills.length / 2);
-  const columns = [skills.slice(0, half), skills.slice(half)];
+const SkillCard = ({ title, skills }) => (
+  <div className="skills__content">
+      <h3 className='skills__title'>{title}</h3>
 
-  return (
-    <div className="skills__content">
-        <h3 className='skills__title'>{title}</h3>
-
-        <div className="skills__box">
-            {columns.map((column, index) => (
-                <ul className="skills__group" key={index}>
-                    {column.map((skill) => (
-                        <li className="skills__data" key={skill.name}>
-                            <span className='skills__icon' aria-hidden='true'><i className='bx bx-check'></i></span>
-                            <span className='skills__name'>{skill.name}</span>
-                        </li>
-                    ))}
-                </ul>
-            ))}
-        </div>
-    </div>
-  );
-};
+      <ul className="skills__tags">
+          {skills.map((skill) => (
+              <li className="skills__tag" key={skill.name}>{skill.name}</li>
+          ))}
+      </ul>
+  </div>
+);
 
 const Skills = () => {
   return (
