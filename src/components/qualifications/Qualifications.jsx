@@ -79,12 +79,12 @@ const Qualifications = () => {
 
             <div className="qualifications__container container">
                 <div className="qualifications__tabs">
-                    <button type="button" className={toggleState === 1 ? "qualifications__button qualifications__active button--flex" : "qualifications__button button--flex"} onClick={() => setToggleState(1)}>
+                    <button type="button" className={toggleState === 1 ? "qualifications__button qualifications__active button--flex" : "qualifications__button button--flex"} aria-pressed={toggleState === 1} onClick={() => setToggleState(1)}>
                         <i className='uil uil-graduation-cap qualifications__icon'></i>
                         Education
                     </button>
 
-                    <button type="button" className={toggleState === 2 ? "qualifications__button qualifications__active button--flex" : "qualifications__button button--flex"} onClick={() => setToggleState(2)}>
+                    <button type="button" className={toggleState === 2 ? "qualifications__button qualifications__active button--flex" : "qualifications__button button--flex"} aria-pressed={toggleState === 2} onClick={() => setToggleState(2)}>
                         <i className='uil uil-briefcase-alt qualifications__icon'></i>
                         Experience
                     </button>
