@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import useSlider from '../../hooks/useSlider';
 import './qualifications.css';
 
@@ -8,7 +8,6 @@ const education = [
     { title: 'Meta Front-End Developer Professional Certificate', subtitle: 'Meta - Online', date: 'Jan 2024' },
     { title: 'Google IT Support Certificate', subtitle: 'Google - Online', date: 'Jun 2022' },
     { title: 'Web Programming with Python and JavaScript', subtitle: 'Harvard University - Online', date: 'May 2020' },
-    { title: "Bachelor's Degree, Computer Science", subtitle: 'University Of North Bengal - India', date: '2015 - 2018' },
 ];
 
 const experience = [
@@ -19,11 +18,35 @@ const experience = [
     { title: 'Whole Foods Shopper', subtitle: 'Amazon - New York', date: 'Aug 2019 - Feb 2020' },
 ];
 
+// Height of the tallest entry text above (or below) the line, so the timeline reserves exactly
+// enough room and long, wrapped titles are never cut off.
+const tallest = (track, side) => Math.max(0, ...[...track.querySelectorAll(`.qualifications__data--${side} .qualifications__info`)].map((el) => el.offsetHeight));
+
 const Timeline = ({ items }) => {
     const { trackRef, atStart, atEnd, update, scrollByOne } = useSlider(items.length);
+    const timelineRef = useRef(null);
+
+    useLayoutEffect(() => {
+        const track = trackRef.current;
+        const timeline = timelineRef.current;
+        if (!track || !timeline) return undefined;
+
+        const measure = () => {
+            timeline.style.setProperty('--above', `${tallest(track, 'top')}px`);
+            timeline.style.setProperty('--below', `${tallest(track, 'bottom')}px`);
+            update();
+        };
+        measure();
+
+        // Text heights change when the window resizes or the web font finishes loading.
+        if (typeof ResizeObserver === 'undefined') return undefined;
+        const observer = new ResizeObserver(measure);
+        track.querySelectorAll('.qualifications__info').forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+    }, [items, trackRef, update]);
 
     return (
-        <div className={`qualifications__timeline${atStart && atEnd ? ' qualifications__timeline--fits' : ''}`}>
+        <div ref={timelineRef} className={`qualifications__timeline${atStart && atEnd ? ' qualifications__timeline--fits' : ''}`}>
             <button
                 type="button"
                 className="qualifications__arrow qualifications__arrow--prev"
