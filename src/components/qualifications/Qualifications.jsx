@@ -39,14 +39,19 @@ const Timeline = ({ items }) => {
                 ref={trackRef}
                 onScroll={update}
             >
-                {items.map((item) => (
-                    <li className="qualifications__data" key={`${item.title}-${item.date}`}>
-                        <div className="qualifications__calendar">
-                            <i className='uil uil-calendar-alt'></i> {item.date}
-                        </div>
+                {items.map((item, index) => (
+                    <li
+                        className={`qualifications__data ${index % 2 === 0 ? 'qualifications__data--top' : 'qualifications__data--bottom'}`}
+                        key={`${item.title}-${item.date}`}
+                    >
                         <span className="qualifications__rounder"></span>
-                        <h3 className='qualifications__title'>{item.title}</h3>
-                        <span className='qualifications__subtitle'>{item.subtitle}</span>
+                        <div className="qualifications__info">
+                            <h3 className='qualifications__title'>{item.title}</h3>
+                            <span className='qualifications__subtitle'>{item.subtitle}</span>
+                            <div className="qualifications__calendar">
+                                <i className='uil uil-calendar-alt'></i> {item.date}
+                            </div>
+                        </div>
                     </li>
                 ))}
             </ol>

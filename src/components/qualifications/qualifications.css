@@ -29,6 +29,9 @@
 
 /* Horizontal timeline */
 .qualifications__timeline {
+    --half: 7.5rem;
+    --step: 160px;
+    --info-width: 280px;
     display: flex;
     align-items: flex-start;
     column-gap: 1rem;
@@ -65,60 +68,72 @@
     --fade-right: 5rem;
 }
 
+/* Room after the last item so its text is not cut off. */
+.qualifications__track::after {
+    content: '';
+    flex: 0 0 calc(var(--info-width) - var(--step));
+}
+
 .qualifications__track::-webkit-scrollbar {
     display: none;
 }
 
 .qualifications__data {
     position: relative;
-    flex: 0 0 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-right: 1.75rem;
+    flex: 0 0 var(--step);
+    height: calc(2 * var(--half));
     scroll-snap-align: start;
 }
 
-/* The line runs through every item's dot, forming one continuous timeline. */
+/* Each item draws its piece of the line, forming one continuous timeline. */
 .qualifications__data::before {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
-    top: calc(1.5rem + 0.75rem + 6px);
+    top: var(--half);
     height: 1px;
     background-color: var(--text-color);
-    opacity: 0.5;
-}
-
-.qualifications__calendar {
-    height: 1.5rem;
-    display: flex;
-    align-items: center;
-    column-gap: 0.25rem;
-    font-size: var(--small-font-size);
-    margin-bottom: 0.75rem;
-    white-space: nowrap;
 }
 
 .qualifications__rounder {
-    position: relative;
+    position: absolute;
     z-index: 1;
+    left: 0;
+    top: calc(var(--half) - 6.5px);
     width: 13px;
     height: 13px;
     background-color: var(--text-color);
     border-radius: 50%;
-    box-shadow: 0 0 0 5px var(--body-color);
-    margin-bottom: var(--mb-1);
+}
+
+/* Entries alternate above and below the line, like the old vertical timeline did left and right. */
+.qualifications__info {
+    position: absolute;
+    left: 0;
+    width: var(--info-width);
+}
+
+.qualifications__data--top .qualifications__info {
+    bottom: calc(var(--half) + 1.25rem);
+}
+
+.qualifications__data--bottom .qualifications__info {
+    top: calc(var(--half) + 1.25rem);
 }
 
 .qualifications__title {
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
-    margin-bottom: var(--mb-0-25);
 }
 
 .qualifications__subtitle {
+    display: inline-block;
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
+}
+
+.qualifications__calendar {
     font-size: var(--small-font-size);
 }
 
@@ -128,7 +143,7 @@
     place-items: center;
     width: 2.5rem;
     height: 2.5rem;
-    margin-top: calc(1.5rem + 0.75rem + 6px - 1.25rem);
+    margin-top: calc(var(--half) - 1.25rem);
     border-radius: 50%;
     background-color: var(--container-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -150,12 +165,6 @@
 
 /* BREAKPOINTS */
 /* For medium devices */
-@media screen and (max-width: 768px) {
-    .qualifications__data {
-        flex-basis: 220px;
-    }
-}
-
 @media screen and (max-width: 576px) {
     .qualifications__button {
         margin: 0 var(--mb-0-75);
@@ -165,8 +174,10 @@
         display: none;
     }
 
-    .qualifications__data {
-        flex-basis: 75%;
+    .qualifications__timeline {
+        --half: 9.5rem;
+        --step: 130px;
+        --info-width: 220px;
     }
 
     .qualifications__track {
