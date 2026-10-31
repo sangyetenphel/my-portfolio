@@ -31,10 +31,10 @@ function App() {
         element = {
           <DefaultLayout>
             <Home />
-            <Skills />
             {/* <Services /> */}
             <Qualifications />
             <Portfolio />
+            <Skills />
           </DefaultLayout>
         }
       />

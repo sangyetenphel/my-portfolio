@@ -1,12 +1,71 @@
 import React, { useState } from 'react';
+import useSlider from '../../hooks/useSlider';
 import './qualifications.css';
+
+const education = [
+    { title: "Master's Degree, Computer Science", subtitle: "UNC Greensboro - Accelerated Master's Program", date: 'Expected Dec 2027' },
+    { title: "Bachelor's Degree, Computer Science", subtitle: 'UNC Greensboro - GPA 3.87/4.00', date: 'Aug 2024 - Dec 2026' },
+    { title: 'Meta Front-End Developer Professional Certificate', subtitle: 'Meta - Online', date: 'Jan 2024' },
+    { title: 'Google IT Support Certificate', subtitle: 'Google - Online', date: 'Jun 2022' },
+    { title: 'Web Programming with Python and JavaScript', subtitle: 'Harvard University - Online', date: 'May 2020' },
+    { title: "Bachelor's Degree, Computer Science", subtitle: 'University Of North Bengal - India', date: '2015 - 2018' },
+];
+
+const experience = [
+    { title: 'Data Systems Analyst Intern', subtitle: 'UNCG Center for Youth, Family & Community Partnerships - Greensboro', date: 'Apr 2026 - Aug 2026' },
+    { title: 'IT Technician', subtitle: 'Mercy Drive - New York', date: 'Sep 2022 - Jul 2023' },
+    { title: 'Sushi Server', subtitle: 'Temakase Handroll Bar - New York', date: 'Aug 2021 - May 2022' },
+    { title: 'Web Development and SEO Intern', subtitle: 'Screenshop(Acquired by Snapchat) - New York', date: 'Apr 2020 - May 2020' },
+    { title: 'Whole Foods Shopper', subtitle: 'Amazon - New York', date: 'Aug 2019 - Feb 2020' },
+];
+
+const Timeline = ({ items }) => {
+    const { trackRef, atStart, atEnd, update, scrollByOne } = useSlider(items.length);
+
+    return (
+        <div className="qualifications__timeline">
+            <button
+                type="button"
+                className="qualifications__arrow qualifications__arrow--prev"
+                onClick={() => scrollByOne(-1)}
+                disabled={atStart}
+                aria-label="Scroll timeline back"
+            >
+                <i className="uil uil-angle-left"></i>
+            </button>
+
+            <ol
+                className={`qualifications__track${atStart ? '' : ' qualifications__track--fade-left'}${atEnd ? '' : ' qualifications__track--fade-right'}`}
+                ref={trackRef}
+                onScroll={update}
+            >
+                {items.map((item) => (
+                    <li className="qualifications__data" key={`${item.title}-${item.date}`}>
+                        <div className="qualifications__calendar">
+                            <i className='uil uil-calendar-alt'></i> {item.date}
+                        </div>
+                        <span className="qualifications__rounder"></span>
+                        <h3 className='qualifications__title'>{item.title}</h3>
+                        <span className='qualifications__subtitle'>{item.subtitle}</span>
+                    </li>
+                ))}
+            </ol>
+
+            <button
+                type="button"
+                className="qualifications__arrow qualifications__arrow--next"
+                onClick={() => scrollByOne(1)}
+                disabled={atEnd}
+                aria-label="Scroll timeline forward"
+            >
+                <i className="uil uil-angle-right"></i>
+            </button>
+        </div>
+    );
+};
 
 const Qualifications = () => {
     const [toggleState, setToggleState] = useState(1);
-
-    const toggleTab = (index) => {
-        setToggleState(index);
-    }
 
     return (
         <section className="qualifications section" id='qualifications'>
@@ -15,197 +74,20 @@ const Qualifications = () => {
 
             <div className="qualifications__container container">
                 <div className="qualifications__tabs">
-                    <div className={toggleState === 1 ? "qualifications__button qualifications__active button--flex" : "qualifications__button button--flex"} onClick={() => toggleTab(1)}>
+                    <button type="button" className={toggleState === 1 ? "qualifications__button qualifications__active button--flex" : "qualifications__button button--flex"} onClick={() => setToggleState(1)}>
                         <i className='uil uil-graduation-cap qualifications__icon'></i>
                         Education
-                    </div>
+                    </button>
 
-                    <div className={toggleState === 2 ? "qualifications__button qualifications__active button--flex" : "qualifications__button button--flex"} onClick={() => toggleTab(2)}>
-                        <i className='uil uil-briefcase-alt qualifications__icon qualifications__icon'></i>
+                    <button type="button" className={toggleState === 2 ? "qualifications__button qualifications__active button--flex" : "qualifications__button button--flex"} onClick={() => setToggleState(2)}>
+                        <i className='uil uil-briefcase-alt qualifications__icon'></i>
                         Experience
-                    </div>
+                    </button>
                 </div>
 
-                <div className="qualifications__sections">
-                    <div className={toggleState === 1 ? "qualifications__content qualifications__content-active" : "qualifications__content"}>
-                        <div className="qualifications__data">
-                            <div>
-                                <h3 className='qualifications__title'>Master's Degree, Computer Science</h3>
-                                <span className='qualifications__subtitle'>UNC Greensboro - Accelerated Master's Program</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Expected Dec 2027
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div></div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 className='qualifications__title'>Bachelor's Degree, Computer Science</h3>
-                                <span className='qualifications__subtitle'>UNC Greensboro - GPA 3.87/4.00</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Aug 2024 - Dec 2026
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div>
-                                <h3 className='qualifications__title'>Meta Front-End Developer Professional Certificate</h3>
-                                <span className='qualifications__subtitle'>Meta - Online</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Jan 2024
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div></div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 className='qualifications__title'>Google IT Support Certificate</h3>
-                                <span className='qualifications__subtitle'>Google - Online</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Jun 2022
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div>
-                                <h3 className='qualifications__title'>Web Programming with Python and JavaScript</h3>
-                                <span className='qualifications__subtitle'>Harvard University - Online</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> May 2020
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div></div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 className='qualifications__title'>Bachelor's Degree, Computer Science</h3>
-                                <span className='qualifications__subtitle'>University Of North Bengal - India</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> 2015 - 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={toggleState === 2 ? "qualifications__content qualifications__content-active" : "qualifications__content"}>
-                        <div className="qualifications__data">
-                            <div>
-                                <h3 className='qualifications__title'>Data Systems Analyst Intern</h3>
-                                <span className='qualifications__subtitle'>UNCG Center for Youth, Family &amp; Community Partnerships - Greensboro</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Apr 2026 - Aug 2026
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div></div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 className='qualifications__title'>IT Technician</h3>
-                                <span className='qualifications__subtitle'>Mercy Drive - New York</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Sep 2022 - Jul 2023
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div>
-                                <h3 className='qualifications__title'>Sushi Server</h3>
-                                <span className='qualifications__subtitle'>Temakase Handroll Bar - New York </span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Aug 2021 - May 2022
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div></div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 className='qualifications__title'>Web Development and SEO Intern</h3>
-                                <span className='qualifications__subtitle'>Screenshop(Acquired by Snapchat) - New York</span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Apr 2020 - May 2020
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="qualifications__data">
-                            <div>
-                                <h3 className='qualifications__title'>Whole Foods Shopper</h3>
-                                <span className='qualifications__subtitle'>Amazon - New York </span>
-                                <div className="qualifications__calendar">
-                                    <i className='uil uil-calendar-alt'></i> Aug 2019 - Feb 2020
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualifications__rounder"></span>
-                                <span className="qualifications__line"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {toggleState === 1
+                    ? <Timeline key="education" items={education} />
+                    : <Timeline key="experience" items={experience} />}
             </div>
         </section>
     )
