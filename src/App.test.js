@@ -61,6 +61,7 @@ test('qualifications timeline switches between education and experience', () => 
   renderAt('/');
   expect(screen.getByRole('heading', { name: 'Google IT Support Certificate' })).toBeInTheDocument();
   expect(screen.queryByRole('heading', { name: 'Data Systems Analyst Intern' })).not.toBeInTheDocument();
+  expect(screen.queryByText(/North Bengal/)).not.toBeInTheDocument();
 
   expect(screen.getByRole('button', { name: /education/i })).toHaveAttribute('aria-pressed', 'true');
   fireEvent.click(screen.getByRole('button', { name: /experience/i }));

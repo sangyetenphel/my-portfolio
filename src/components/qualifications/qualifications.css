@@ -51,7 +51,12 @@
 
 /* Horizontal timeline */
 .qualifications__timeline {
-    --half: 7.5rem;
+    /* --above / --below: height of the tallest entry text above / below the line, measured in
+       Qualifications.jsx (these are fallbacks until then). --line: where the line runs. */
+    --above: 7rem;
+    --below: 7rem;
+    --gap: 1.25rem;
+    --line: calc(var(--above) + var(--gap) + 6px);
     --step: 160px;
     --info-width: 280px;
     display: flex;
@@ -105,7 +110,7 @@
 .qualifications__data {
     position: relative;
     flex: 0 0 var(--step);
-    height: calc(2 * var(--half));
+    height: calc(var(--line) + 6px + var(--gap) + var(--below));
     scroll-snap-align: start;
 }
 
@@ -115,7 +120,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: var(--half);
+    top: var(--line);
     height: 1px;
     background-color: var(--text-color);
 }
@@ -124,7 +129,7 @@
     position: absolute;
     z-index: 1;
     left: 0;
-    top: calc(var(--half) - 6.5px);
+    top: calc(var(--line) - 6.5px);
     width: 13px;
     height: 13px;
     background-color: var(--text-color);
@@ -139,11 +144,11 @@
 }
 
 .qualifications__data--top .qualifications__info {
-    bottom: calc(var(--half) + 1.25rem);
+    bottom: calc(100% - var(--line) + 6px + var(--gap));
 }
 
 .qualifications__data--bottom .qualifications__info {
-    top: calc(var(--half) + 1.25rem);
+    top: calc(var(--line) + 6px + var(--gap));
 }
 
 .qualifications__title {
@@ -167,7 +172,7 @@
     place-items: center;
     width: 2.5rem;
     height: 2.5rem;
-    margin-top: calc(var(--half) - 1.25rem);
+    margin-top: calc(var(--line) - 1.25rem);
     border-radius: 50%;
     background-color: var(--container-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -236,7 +241,6 @@
     }
 
     .qualifications__timeline {
-        --half: 9.5rem;
         --step: 130px;
         --info-width: 220px;
     }
