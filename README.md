@@ -1,6 +1,6 @@
 # Sangye Tenphel: Portfolio
 
-My personal portfolio website, live at **[sangyetenphel.com](https://sangyetenphel.com)**. It introduces me, lists my skills, education and experience, and showcases my projects, each with a demo video, an overview, the technologies used and a link to the code. Built with React.
+My personal portfolio website, live at **[sangyetengkhar.com](https://sangyetengkhar.com)**. It introduces me, lists my skills, education and experience, and showcases my projects, each with a demo video, an overview, the technologies used and a link to the code. Built with React.
 
 ![Portfolio demo: the home section, skills, education and experience timeline, project filters and a project page](docs/demo.gif)
 
