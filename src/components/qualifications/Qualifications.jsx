@@ -23,7 +23,7 @@ const Timeline = ({ items }) => {
     const { trackRef, atStart, atEnd, update, scrollByOne } = useSlider(items.length);
 
     return (
-        <div className="qualifications__timeline">
+        <div className={`qualifications__timeline${atStart && atEnd ? ' qualifications__timeline--fits' : ''}`}>
             <button
                 type="button"
                 className="qualifications__arrow qualifications__arrow--prev"
