@@ -48,3 +48,19 @@ test('footer links to LinkedIn, GitHub and email', () => {
   expect(screen.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/sangyetenphel');
   expect(screen.getByRole('link', { name: 'Email' })).toHaveAttribute('href', 'mailto:sangyetengkhar@gmail.com');
 });
+
+test('sections appear in order with Skills last', () => {
+  const { container } = renderAt('/');
+  const ids = [...container.querySelectorAll('main > section')].map((section) => section.id);
+  expect(ids).toEqual(['home', 'qualifications', 'projects', 'skills']);
+});
+
+test('qualifications timeline switches between education and experience', () => {
+  renderAt('/');
+  expect(screen.getByRole('heading', { name: 'Google IT Support Certificate' })).toBeInTheDocument();
+  expect(screen.queryByRole('heading', { name: 'Data Systems Analyst Intern' })).not.toBeInTheDocument();
+
+  fireEvent.click(screen.getByRole('button', { name: /experience/i }));
+  expect(screen.getByRole('heading', { name: 'Data Systems Analyst Intern' })).toBeInTheDocument();
+  expect(screen.queryByRole('heading', { name: 'Google IT Support Certificate' })).not.toBeInTheDocument();
+});

@@ -1,52 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { projectsData } from './Data';
 import WorkItems from './WorkItems';
+import useSlider from '../../hooks/useSlider';
 import './portfolio.css';
 
 const projects = [...projectsData].reverse();
 
-// Distance from one card to the next: card width plus the gap.
-const cardStep = (track) => {
-    const card = track?.firstElementChild;
-    if (!card) return 0;
-    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-    return card.offsetWidth + gap;
-};
-
 const Works = () => {
-    const trackRef = useRef(null);
-    const [active, setActive] = useState(0);
-    const [atStart, setAtStart] = useState(true);
-    const [atEnd, setAtEnd] = useState(false);
-    const [positions, setPositions] = useState(projects.length);
-
-    const updateState = useCallback(() => {
-        const track = trackRef.current;
-        if (!track) return;
-        const step = cardStep(track);
-        if (step) {
-            const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-            const visible = Math.max(1, Math.round((track.clientWidth + gap) / step));
-            setPositions(Math.max(1, projects.length - visible + 1));
-            setActive(Math.round(track.scrollLeft / step));
-        }
-        setAtStart(track.scrollLeft <= 1);
-        setAtEnd(track.scrollLeft + track.clientWidth >= track.scrollWidth - 1);
-    }, []);
-
-    useEffect(() => {
-        updateState();
-        window.addEventListener('resize', updateState);
-        return () => window.removeEventListener('resize', updateState);
-    }, [updateState]);
-
-    const scrollToIndex = (index) => {
-        trackRef.current?.scrollTo({ left: index * cardStep(trackRef.current), behavior: 'smooth' });
-    };
-
-    const scrollByOne = (direction) => {
-        trackRef.current?.scrollBy({ left: direction * cardStep(trackRef.current), behavior: 'smooth' });
-    };
+    const { trackRef, active, atStart, atEnd, positions, update, scrollToIndex, scrollByOne } = useSlider(projects.length);
 
     return (
         <div className="work__slider container">
@@ -60,7 +21,7 @@ const Works = () => {
                 <i className="uil uil-angle-left"></i>
             </button>
 
-            <div className="work__track" ref={trackRef} onScroll={updateState}>
+            <div className="work__track" ref={trackRef} onScroll={update}>
                 {projects.map((item) => {
                     return <WorkItems item={item} key={item.id}/>
                 })}

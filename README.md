@@ -7,9 +7,9 @@ My personal portfolio website, live at **[sangyetengkhar.com](https://sangyeteng
 ## Features
 
 - **Home:** an introduction and a resume download.
-- **Skills:** frontend and mobile skills alongside backend and cloud skills.
-- **Qualifications:** an education and experience timeline you switch between with tabs.
+- **Qualifications:** a horizontal education and experience timeline, with tabs to switch between them and arrows (or swiping) to move along it.
 - **Projects:** a slider of my four featured projects, with arrow buttons, dots, and swiping on phones. Each project has its own page with a demo video, an overview, the technologies used, and GitHub and live-site links.
+- **Skills:** frontend and mobile skills alongside backend and cloud skills.
 - **Footer:** LinkedIn, GitHub and email links.
 - **Responsive:** the layout adapts from desktop to phone, with a bottom navigation menu on small screens.
 - **Link previews:** Open Graph tags give a preview card when the site is shared on LinkedIn or in messages.
@@ -26,13 +26,14 @@ src/
 ├── components/
 │   ├── header/           Navigation bar
 │   ├── home/             Introduction and resume download
-│   ├── skills/           Skills cards
 │   ├── qualifications/   Education and experience timeline
 │   ├── portfolio/        Projects slider and Data.jsx (all project content)
 │   ├── project/          Project detail page
+│   ├── skills/           Skills cards
 │   ├── footer/           LinkedIn, GitHub and email links
 │   └── scrollup/         Back-to-top button
-└── App.test.js           Tests for the home page, project filters and project pages
+├── hooks/useSlider.js    Scroll logic shared by the projects slider and the timeline
+└── App.test.js           Tests for the sections, slider, timeline, footer and project pages
 ```
 
 ### Adding a project
