@@ -163,7 +163,36 @@
     cursor: default;
 }
 
+/* Everything fits, so there is nothing to scroll to. */
+.qualifications__timeline--fits .qualifications__arrow {
+    visibility: hidden;
+}
+
 /* BREAKPOINTS */
+/* Wide screens: use the extra width so entries have more room */
+@media screen and (min-width: 1280px) {
+    .qualifications__container {
+        max-width: 1240px;
+    }
+
+    .qualifications__timeline {
+        --step: 200px;
+        --info-width: 300px;
+    }
+}
+
+/* Very wide screens: room for the whole education timeline at once */
+@media screen and (min-width: 1680px) {
+    .qualifications__container {
+        max-width: 1560px;
+    }
+
+    .qualifications__timeline {
+        --step: 225px;
+        --info-width: 320px;
+    }
+}
+
 /* For medium devices */
 @media screen and (max-width: 576px) {
     .qualifications__button {
