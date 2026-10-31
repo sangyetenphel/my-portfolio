@@ -5,17 +5,34 @@
 }
 
 .qualifications__button {
+    position: relative;
     background: none;
     font-family: inherit;
     font-size: var(--h3-font-size);
     font-weight: var(--font-medium);
-    color: var(--title-color);
+    color: var(--text-color);
     margin: 0 var(--mb-1);
+    padding-bottom: 0.5rem;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
 .qualifications__button:hover {
-    color: var(--title-color-dark);
+    color: var(--title-color);
+}
+
+/* Underline under the selected tab */
+.qualifications__button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--title-color-dark);
+    transform: scaleX(0);
+    transition: transform 0.3s;
 }
 
 .qualifications__icon {
@@ -23,8 +40,13 @@
     margin-right: var(--mb-0-25);
 }
 
-.qualifications__active {
+.qualifications__active,
+.qualifications__active:hover {
     color: var(--title-color-dark);
+}
+
+.qualifications__active::after {
+    transform: scaleX(1);
 }
 
 /* Horizontal timeline */
@@ -85,7 +107,7 @@
     scroll-snap-align: start;
 }
 
-/* Each item draws its piece of the line, forming one continuous timeline. */
+/* Each item draws its piece of the line, forming one continuous timeline that ends at the last dot. */
 .qualifications__data::before {
     content: '';
     position: absolute;
@@ -94,6 +116,10 @@
     top: var(--half);
     height: 1px;
     background-color: var(--text-color);
+}
+
+.qualifications__data:last-child::before {
+    display: none;
 }
 
 .qualifications__rounder {
@@ -163,9 +189,13 @@
     cursor: default;
 }
 
-/* Everything fits, so there is nothing to scroll to. */
+/* Everything fits, so there is nothing to scroll to: hide the arrows and center the timeline. */
 .qualifications__timeline--fits .qualifications__arrow {
     visibility: hidden;
+}
+
+.qualifications__timeline--fits .qualifications__track {
+    justify-content: center;
 }
 
 /* BREAKPOINTS */
