@@ -107,7 +107,7 @@
     scroll-snap-align: start;
 }
 
-/* Each item draws its piece of the line, forming one continuous timeline that ends at the last dot. */
+/* Each item draws its piece of the line, forming one continuous timeline. */
 .qualifications__data::before {
     content: '';
     position: absolute;
@@ -116,10 +116,6 @@
     top: var(--half);
     height: 1px;
     background-color: var(--text-color);
-}
-
-.qualifications__data:last-child::before {
-    display: none;
 }
 
 .qualifications__rounder {
