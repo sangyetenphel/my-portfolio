@@ -58,7 +58,7 @@ const SkillCard = ({ title, skills }) => {
                 <ul className="skills__group" key={index}>
                     {column.map((skill) => (
                         <li className="skills__data" key={skill.name}>
-                            <i className='bx bxs-check-circle skills__icon' aria-hidden='true'></i>
+                            <span className='skills__icon' aria-hidden='true'><i className='bx bx-check'></i></span>
                             <span className='skills__name'>{skill.name}</span>
                         </li>
                     ))}

@@ -45,9 +45,17 @@
     column-gap: 0.5rem;
 }
 
+/* Dark check on a soft round background */
 .skills__icon {
-    font-size: 1.05rem;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background-color: hsl(var(--hue), var(--sat), 91%);
     color: var(--title-color);
+    font-size: 1rem;
 }
 
 .skills__name {
